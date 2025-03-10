@@ -81,19 +81,21 @@ const isotope = new Isotope(".cases", {
 // 成功案例筛选
 const filterBtns = document.querySelector(".filter-btns");
 // 当点击筛选按钮时
-filterBtns.addEventListener("click", e => {
-  let { target = {} } = e;
-  const filterOption = target.getAttribute("data-filter");
-  if (filterOption) {
-    // 取消其他按钮active状态
-    document
-      .querySelectorAll(".filter-btn.active")
-      .forEach(btn => btn.classList.remove("active"));
-    target.classList.add("active");
-    // 筛选
-    isotope.arrange({ filter: filterOption });
-  }
-});
+if (filterBtns) {
+  filterBtns.addEventListener("click", e => {
+    let { target = {} } = e;
+    const filterOption = target.getAttribute("data-filter");
+    if (filterOption) {
+      // 取消其他按钮active状态
+      document
+        .querySelectorAll(".filter-btn.active")
+        .forEach(btn => btn.classList.remove("active"));
+      target.classList.add("active");
+      // 筛选
+      isotope.arrange({ filter: filterOption });
+    }
+  });
+}
 
 // 滚动展示插件
 // 通用动画配置，从底部50象素滑出来
@@ -111,32 +113,35 @@ ScrollReveal().reveal(".feature", { ...staggeringOption, interval: 350 });
 
 // 数据部分
 const dataSectionEl = document.querySelector(".data-section");
-ScrollReveal().reveal(".data-section", {
-  beforeReveal: () => {
-    // 在展示之前，加载anime动画，使数据从0增长到定义好的数值
-    anime({
-      targets: ".data-piece .num",
-      innerHTML: el => {
-        return [0, el.innerHTML];
-      },
-      duration: 2000,
-      round: 1,
-      easing: "easeInExpo"
-    });
-    dataSectionEl.style.backgroundPosition = `center calc(50% - ${dataSectionEl.getBoundingClientRect()
-      .bottom / 5}px)`;
-  }
-});
-// 数据，背景视差滚动
-window.addEventListener("scroll", () => {
-  const bottom = dataSectionEl.getBoundingClientRect().bottom;
-  const top = dataSectionEl.getBoundingClientRect().top;
-  // 如果在可见区域内
-  if (bottom >= 0 && top <= window.innerHeight) {
-    dataSectionEl.style.backgroundPosition = `center calc(50% - ${bottom /
-      5}px)`;
-  }
-});
+if (dataSectionEl) {
+  ScrollReveal().reveal(".data-section", {
+    beforeReveal: () => {
+      // 在展示之前，加载anime动画，使数据从0增长到定义好的数值
+      anime({
+        targets: ".data-piece .num",
+        innerHTML: el => {
+          return [0, el.innerHTML];
+        },
+        duration: 2000,
+        round: 1,
+        easing: "easeInExpo"
+      });
+      dataSectionEl.style.backgroundPosition = `center calc(50% - ${dataSectionEl.getBoundingClientRect()
+        .bottom / 5}px)`;
+    }
+  });
+
+  // 数据，背景视差滚动
+  window.addEventListener("scroll", () => {
+    const bottom = dataSectionEl.getBoundingClientRect().bottom;
+    const top = dataSectionEl.getBoundingClientRect().top;
+    // 如果在可见区域内
+    if (bottom >= 0 && top <= window.innerHeight) {
+      dataSectionEl.style.backgroundPosition = `center calc(50% - ${bottom /
+        5}px)`;
+    }
+  });
+}
 
 /* ***** 响应式**** */
 
@@ -157,13 +162,69 @@ const scroll = new SmoothScroll('nav a[href*="#"], .scrollToTop a[href*="#"]', {
 
 // 探索更多按钮的处理函数
 const exploreBtnEl = document.querySelector(".explore-btn");
-exploreBtnEl.addEventListener("click", () => {
-  scroll.animateScroll(document.querySelector("#about-us"));
-});
+if (exploreBtnEl) {
+  exploreBtnEl.addEventListener("click", () => {
+    scroll.animateScroll(document.querySelector("#about-us"));
+  });
+}
 
 // 折叠菜单打开时，如果点击了链接，则自动关闭全屏导航
 document.addEventListener("scrollStart", () => {
   if (headerEl.classList.contains("open")) {
     headerEl.classList.remove("open");
   }
+});
+
+// 初始化地图
+const map = new AMap.Map('container', {
+    zoom: 15,  // 地图缩放级别
+    center: [113.296798, 23.09609],  // 经纬度坐标
+    viewMode: '2D',  // 使用2D模式
+    lang: 'zh_cn',  // 设置语言
+    mapStyle: 'amap://styles/normal',  // 设置地图样式
+    resizeEnable: true  // 是否监控地图容器尺寸变化
+});
+
+// 添加地图控件
+map.plugin(['AMap.ToolBar', 'AMap.Scale'], function(){
+    // 添加工具条
+    const toolbar = new AMap.ToolBar();
+    map.addControl(toolbar);
+    // 添加比例尺
+    const scale = new AMap.Scale();
+    map.addControl(scale);
+});
+
+// 添加标记点
+const marker = new AMap.Marker({
+    position: [113.296798, 23.09609],
+    title: '深根宁极(广州)科技有限公司',
+    icon: new AMap.Icon({
+        // 使用自定义图标
+        size: new AMap.Size(40, 40),  // 调整图标大小
+        image: 'images/Marker.png',   // 图标路径
+        imageSize: new AMap.Size(40, 40)  // 调整图片大小
+    }),
+    offset: new AMap.Pixel(-20, -40)  // 调整偏移量
+});
+
+map.add(marker);
+
+// 添加信息窗体
+const infoWindow = new AMap.InfoWindow({
+    content: `
+        <div style="padding: 15px;">
+            <h3 style="margin: 0 0 10px 0; color: #1890ff;">深根宁极(广州)科技有限公司</h3>
+            <p style="margin: 0; line-height: 1.5;">地址：广州市海珠区新港西路135号</p>
+        </div>
+    `,
+    offset: new AMap.Pixel(0, -30)
+});
+
+// 默认打开信息窗体
+infoWindow.open(map, marker.getPosition());
+
+// 确保地图加载完成
+map.on('complete', function() {
+    console.log('地图加载完成');
 });
