@@ -75,7 +75,7 @@ const translations = {
       service4_desc: "Provide comprehensive front - and back-end development services to build high-performance, easy-to-use, and secure websites and applications.",
       service5_desc: "Develop wechat mini programs for enterprises and organizations to improve users' interactive experience and business coverage.",
       service6_desc: "Provide mobile application design and development services, covering the Android platform, to meet various business needs.",
-      reasearchTitle: "Research Achievements",
+      researchTitle: "Research Achievements",
       research1: "AI Interactive Digital Human",
       research2: "AI for Science",
       research3: "Blockchain Applications",
@@ -108,6 +108,32 @@ const translations = {
       // 添加其他需要翻译的文本
   }
 };
+
+function changeLanguage(lang) {
+  fetch(`i18n/${lang}.json`)
+      .then(response => response.json())
+      .then(data => {
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if (data[key]) {
+                  el.textContent = data[key];
+              }
+          });
+          
+          // 同步更新语言选择器状态
+          const selector = document.getElementById('language-selector');
+          selector.value = lang;
+      });
+}
+
+// 初始化时检查存储的语言设置
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('language') || 'zh';
+  changeLanguage(savedLang);
+  
+  // 设置选择器初始值
+  document.getElementById('language-selector').value = savedLang;
+});
 
 function switchLanguage(lang) {
   // 更新所有带data-i18n属性的元素

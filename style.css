@@ -505,13 +505,29 @@ section-bg{
     margin-top: 8px;
 }
 
-.map{
-    /* padding-top: 120px; */
-
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    text-align: center; /* 文本居中 */
+    padding: 20px;
 }
 
-.cmap{
-    /* margin: 80px; */
+.service-item i {
+    font-size: 2.5rem;
+    margin-bottom: 15px; /* 增加图标与标题间距 */
+    display: block; /* 确保图标单独一行 */
+}
+
+.service-title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+.service-content {
+    line-height: 1.5;
+    font-size: 0.9rem;
 }
 
 /* 团队介绍 */
@@ -648,21 +664,29 @@ footer {
     padding-bottom: 24px;
   }
   
-  /* 底部菜单 */
   .footer-menus {
     width: 100%;
     max-width: 1180px;
     display: grid;
-    /* 5列布局 */
-    grid-template-columns: 2fr repeat(4, 1fr);
-    padding: 0 80px;
-    position: relative;
-  }
-  
-  /* 导航菜单，靠右对齐 */
-  .footer-menu {
-    justify-self: end;
-  }
+    grid-template-columns: 2.5fr 1.8fr 1.5fr 1fr;
+    gap: 30px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+/* 确保各列最小宽度 */
+.contact-us:nth-child(1) { min-width: 300px; }  /* 联系我们 */
+.contact-us:nth-child(2) { min-width: 280px; }  /* 服务概览 */ 
+.contact-us:nth-child(3) { min-width: 220px; }  /* 帮助与支持 */
+
+.contact-us {
+    padding: 0 15px;
+}
+
+.contact-us, 
+.footer-menu {
+    min-width: 200px;  /* 设置最小宽度防止挤压 */
+    padding: 0 15px;
+}
   
   /* 一级菜单 */
   .menu-title {
@@ -685,9 +709,10 @@ footer {
   
   /* 菜单项 */
   .menu-items li {
-    list-style: none;
-    padding-bottom: 8px;
-  }
+    margin-bottom: 10px;
+    word-break: break-word;  /* 允许长单词换行 */
+    line-height: 1.5;  /* 增加行高提高可读性 */
+}
   /* 菜单链接 */
   .menu-items li a {
     text-decoration: none;
@@ -704,14 +729,17 @@ footer {
   /* 备案信息，版权信息 */
   .icp-info,
   .rights {
-    /* 占满整行，-1代表最后一个编号 */
-    grid-column: 1 / -1;
-    /* 居中对齐 */
-    justify-self: center;
-    color: white;
-    font-size: 14px;
-    padding-top: 16px;
-  }
+    grid-column: 1 / -1;  /* 跨越所有列 */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--text-color-lightest); /* 使用主题色 */
+}
 
 .scrollToTop{
     display: none;
@@ -731,6 +759,7 @@ footer {
     right:30px;
     z-index: 300;
 }
+
 
 /* 自适应，小于1100象素时 */
 @media (max-width: 1100px) {
@@ -913,7 +942,41 @@ header.sticky.nav-up {
         grid-template-columns: 1fr;
     }
 }
-  
+
+/* Footer移动端样式调整 */
+@media (max-width: 768px) {
+    .footer-menus {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 30px;
+    }
+    
+    .contact-us {
+        min-width: 100%;  /* 移动端占满宽度 */
+        padding: 0;
+    }
+    
+    .contact-us:last-child {
+        margin-bottom: 0;
+    }
+    
+    .menu-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .rights {
+        margin-top: 20px;
+        padding: 15px 0;
+    }
+    
+    .scrollToTop {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
 /* 基础响应式设置 */
 @media (max-width: 768px) {
     /* 内容区域padding调整 */
@@ -982,16 +1045,9 @@ header.sticky.nav-up {
         font-size: 18px;
         margin: 24px 0;
     }
-
-    /* 底部导航调整 */
-    .footer-menus {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 0 20px;
-    }
-
+    
     .footer-menu {
-        justify-self: start;
+        justify-self: start !important;
     }
 
     .menu-title {
