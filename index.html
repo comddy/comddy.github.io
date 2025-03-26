@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" />
     <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
     <script src="libs/scrollReveal/scrollreveal.min.js"></script>
     <script type="text/javascript">
         window._AMapSecurityConfig = {
@@ -28,10 +29,16 @@
         </div>
 
         <nav>
-            <a href="#home">首页</a>
-            <a href="#service">资源与服务</a>
-            <a href="#showcases">科研成果</a>
-            <a href="#cmap">关于我们</a>
+            <a href="#home" data-i18n="home">首页</a>
+            <a href="#service" data-i18n="services">资源与服务</a>
+            <a href="#showcases" data-i18n="achievements">科研成果</a>
+            <a href="#cmap" data-i18n="about">关于我们</a>
+            <div class="language-selector">
+                <select class="language-dropdown">
+                    <option value="zh" selected>中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
             <!-- <a href="#team-intro">团队介绍</a> -->
             <!-- <a href="#"><i class="fas fa-search"></i></a> -->
         </nav>
@@ -51,8 +58,8 @@
                 <div class="glide__slide">
                     <!-- 标题 -->
                     <div class="slide-caption">
-                        <h1>科技改变世界，创新引领未来。</h1>
-                        <h3>汇聚前沿智慧，共筑科技梦想，以创新之力驱动时代发展，让科技之光引领人类前行。</h3>
+                        <h1 data-i18n="slogan1">科技改变世界，创新引领未来。</h1>
+                        <h3 data-i18n="slogan2">汇聚前沿智慧，共筑科技梦想，以创新之力驱动时代发展，让科技之光引领人类前行。</h3>
                     </div>
                     <!-- 背景遮罩 -->
                     <div class="backdrop"></div>
@@ -65,46 +72,46 @@
     </div>
     <div class="content-wrapper">
         <section id="service" class="about-us" >
-            <h2 class="title1">资源与服务</h2>
-            <p class="intro">
+            <h2 class="title1" data-i18n="serviceTitle">资源与服务</h2>
+            <p class="intro" data-i18n="serviceIntro">
                 深极科技由精英团队创办，提供AI、软件开发、区块链、数字孪生等技术服务，并与广州超算中心合作，专注于深度学习、大语言模型、强化学习、量子计算等领域的研究。
             </p>
             <div class="services">
                 <div class="service-item">
                     <i class="fas fa-terminal"></i>
-                    <h2 class="service-title">AI技术服务</h2>
-                    <p class="service-content">为各行各业提供AI算法研发模型训练模型部署服务</p>
+                    <h2 class="service-title" data-i18n="service1">AI技术服务</h2>
+                    <p class="service-content" data-i18n="service1_desc">为各行各业提供AI算法研发模型训练模型部署服务</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-school"></i>
-                    <h2 class="service-title">AI for Science</h2>
-                    <p class="service-content">为学术界提供AI算法交叉融合研究范式助力科研探索</p>
+                    <h2 class="service-title" data-i18n="service2">AI for Science</h2>
+                    <p class="service-content" data-i18n="service2_desc">为学术界提供AI算法交叉融合研究范式助力科研探索</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-shield-alt"></i>
-                    <h2 class="service-title">区块链技术服务</h2>
-                    <p class="service-content">提供区块链技术的开发与应用服务，支持企业和机构构建安全可靠的分布式系统。</p>
+                    <h2 class="service-title" data-i18n="service3">区块链技术服务</h2>
+                    <p class="service-content" data-i18n="service3_desc">提供区块链技术的开发与应用服务，支持企业和机构构建安全可靠的分布式系统。</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-sitemap"></i>
-                    <h2 class="service-title">前后端开发</h2>
-                    <p class="service-content">提供全面的前后端开发服务，致力于打造高性能、易用且安全的网站和应用程序。</p>
+                    <h2 class="service-title" data-i18n="service4">前后端开发</h2>
+                    <p class="service-content" data-i18n="service4_desc">提供全面的前后端开发服务，致力于打造高性能、易用且安全的网站和应用程序。</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-graduation-cap"></i>
-                    <h2 class="service-title">小程序开发服务</h2>
-                    <p class="service-content">为企业和机构开发微信小程序，提升用户的互动体验和业务覆盖率。</p>
+                    <h2 class="service-title" data-i18n="service5">小程序开发服务</h2>
+                    <p class="service-content" data-i18n="service5_desc">为企业和机构开发微信小程序，提升用户的互动体验和业务覆盖率。</p>
                 </div>
                 <div class="service-item">
                     <i class="fas fa-compass"></i>
-                    <h2 class="service-title">APP开发服务</h2>
-                    <p class="service-content">提供移动应用程序的设计与开发服务，覆盖Android平台，满足各种业务需求。</p>
+                    <h2 class="service-title" data-i18n="service6">APP开发服务</h2>
+                    <p class="service-content" data-i18n="service6_desc">提供移动应用程序的设计与开发服务，覆盖Android平台，满足各种业务需求。</p>
                 </div>
             </div>
         </section>
 
         <section id="showcases" class="about-us">
-            <h2 class="title1">科研成果</h2>
+            <h2 class="title1" data-i18n="researchTitle">科研成果</h2>
             <div class="filter-btns">
                 <!-- <button class="filter-btn active" data-filter="*">全部</button>
                 <button class="filter-btn" data-filter=".web">web</button>
@@ -117,8 +124,8 @@
                         <img src="images/StockCake-Digital Human Interface_1736345154.jpg" alt="">
                     </div>
                     <div class="case-details">
-                        <h3>AI交互数字人</h3>
-                        <p>支持语音交互、表情控制、肢体动作控制均可实现高逼真度，可用于直播，展会，前台，导播等</p>
+                        <h3 data-i18n="research1">AI交互数字人</h3>
+                        <p data-i18n="research1_desc">支持语音交互、表情控制、肢体动作控制均可实现高逼真度，可用于直播，展会，前台，导播等</p>
                     </div>
                 </div>
                 <div class="case-item">
@@ -126,11 +133,12 @@
                         <img src="images/afs.png" alt="">
                     </div>
                     <div class="case-details">
-                        <h3>AI for Science</h3>
-                        <p> - 为广东省气象局提供陆面分析预测模型<br/>
-                            - 大模型数学推理研究<br/> 
-                            - 自研量子神经网络<br/>
-                            - 与中国电信量子集团合作基于强化学习的量子算法编译研究
+                        <h3 data-i18n="research2">AI for Science</h3>
+                        <p>
+                            <span data-i18n="research2_desc1">- 为广东省气象局提供陆面分析预测模型</span><br/>
+                            <span data-i18n="research2_desc2">- 大模型数学推理研究</span><br/>
+                            <span data-i18n="research2_desc3">- 自研量子神经网络</span><br/>
+                            <span data-i18n="research2_desc4">- 与中国电信量子集团合作基于强化学习的量子算法编译研究</span>
                         </p>
                     </div>
                 </div>
@@ -139,8 +147,8 @@
                         <img src="images/qkl.png" alt="">
                     </div>
                     <div class="case-details">
-                        <h3>区块链应用</h3>
-                        <p>基于区块链技术的去中心化应用（DAPP）具有公开透明、数据全程溯源和不可篡改的特点。通过智能合约，可以在以太坊区块链网络上开发各种功能的DAPP，实现自动化和可信任的应用。</p>
+                        <h3 data-i18n="research3">区块链应用</h3>
+                        <p data-i18n="research3_desc">基于区块链技术的去中心化应用（DAPP）具有公开透明、数据全程溯源和不可篡改的特点。通过智能合约，可以在以太坊区块链网络上开发各种功能的DAPP，实现自动化和可信任的应用。</p>
                     </div>
                 </div>
                 <div class="case-item">
@@ -148,8 +156,8 @@
                         <img src="images/digit-creat.png" alt="">
                     </div>
                     <div class="case-details">
-                        <h3>数字文创 AI + AR</h3>
-                        <p>结合现代数字技术与文化创意产业，我们将创意内容转化为具有市场价值的数字产品。这些产品包括但不限于：增强现实（AR）、3D打印、网页设计等，将文化创意与数字技术完美融合。</p>
+                        <h3 data-i18n="research4">数字文创 AI + AR</h3>
+                        <p data-i18n="research4_desc">结合现代数字技术与文化创意产业，我们将创意内容转化为具有市场价值的数字产品。这些产品包括但不限于：增强现实（AR）、3D打印、网页设计等，将文化创意与数字技术完美融合。</p>
                     </div>
                 </div>
                 <div class="case-item">
@@ -157,8 +165,8 @@
                         <img src="images/ai-struct-algorithm.png" alt="">
                     </div>
                     <div class="case-details">
-                        <h3>量子结构搜索</h3>
-                        <p>可微分量子架构搜索（DQAS）通过端到端可微分方式自动设计量子电路，优化变分量子算法（VQA）性能。它结合可微分编程、概率编程和量子编程，自动优化和发现最优参数化量子电路结构。</p>
+                        <h3 data-i18n="research5">量子结构搜索</h3>
+                        <p data-i18n="research5_desc">可微分量子架构搜索（DQAS）通过端到端可微分方式自动设计量子电路，优化变分量子算法（VQA）性能。它结合可微分编程、概率编程和量子编程，自动优化和发现最优参数化量子电路结构。</p>
                     </div>
                 </div>
                 <div class="case-item">
@@ -166,16 +174,16 @@
                         <img src="images/quantum-a.png" alt="">
                     </div>
                     <div class="case-details">
-                        <h3>量子神经网络</h3>
-                        <p>设计了一种能够实现图像多分类的量子卷积神经网络，并提出了一种基于振幅编码的新型数据编码方案。</p>
+                        <h3 data-i18n="research6">量子神经网络</h3>
+                        <p data-i18n="research6_desc">设计了一种能够实现图像多分类的量子卷积神经网络，并提出了一种基于振幅编码的新型数据编码方案。</p>
                     </div>
                 </div>
             </div>
         </section>
         
         <section id="cmap" class="map">
-            <h2 class="title1">关于我们</h2>
-            <p class="intro">
+            <h2 class="title1" data-i18n="aboutUsTitle">关于我们</h2>
+            <p class="intro" data-i18n="aboutUsIntro">
                 深极科技由一支年轻富有活力的团队创办，公司核心工程师均为硕士或者博士，来自于中山大学、东京大学、西北工业大学、华南理工大学等高校。我们致力于为企业、政府部门、学校等提供包括但不限于AI技术、软件开发、区块链、数字人、数字孪生等技术服务。除此之外，我们也积极投身于人工智能、量子计算等前沿领域的研究探索。
             </p>
             <br>
@@ -247,27 +255,27 @@
     <footer>
         <div class="footer-menus">
             <div class="contact-us">
-                <p class="menu-title">联系我们</p>
-                <p>地址：广州市海珠区新港西路135号</p>
-                <p>电话：14727632108</p>
-                <p>电子邮箱：yangm289@mail2.sysu.edu.cn</p>
+                <p class="menu-title" data-i18n="contactUsTitle">联系我们</p>
+                <p data-i18n="contactUsIntro">地址：广州市海珠区新港西路135号</p>
+                <p data-i18n="contactUsPhone">电话：14727632108</p>
+                <p data-i18n="contactUsEmail">电子邮箱：yangm289@mail2.sysu.edu.cn</p>
             </div>
             <div class="service-menu footer-menu">
-                <p class="menu-title">服务概览</p>
+                <p class="menu-title" data-i18n="serviceMenuTitle">服务概览</p>
                 <ul class="menu-items">
-                    <li><a href="#">量子结构搜索/量子神经网络</a></li>
-                    <li><a href="#">AI视觉/智能客服/RAG应用</a></li>
-                    <li><a href="#">区块链/AI数字人</a></li>
+                    <li><a href="#" data-i18n="serviceMenu1">量子结构搜索/量子神经网络</a></li>
+                    <li><a href="#" data-i18n="serviceMenu2">AI视觉/智能客服/RAG应用</a></li>
+                    <li><a href="#" data-i18n="serviceMenu3">区块链/AI数字人</a></li>
                 </ul>
             </div>
             <div class="help-menu footer-menu">
-                <p class="menu-title">帮助与支持</p>
+                <p class="menu-title" data-i18n="supportTitle">帮助与支持</p>
                 <ul class="menu-items">
-                    <li><a href="#">支持中心</a></li>
-                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#" data-i18n="support1">支持中心</a></li>
+                    <li><a href="#" data-i18n="support2">联系客服</a></li>
                 </ul>
             </div>
-            <p class="rights">
+            <p class="rights" data-i18n="copyRight">
                 ©Copyright 2025 深根宁极(广州)科技有限公司  版权所有
             </p>
             <div class="scrollToTop">
