@@ -10,7 +10,7 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding: 0 30px 0 12px; /* 调整上下padding为0 */
+    padding: 0 24px 0 12px; /* 调整上下padding为0 */
     border: none;
     background-color: transparent;
     color: #e3e3e3; /* 强制使用白色文字 */
@@ -24,9 +24,10 @@
 /* 固定导航状态下的文字颜色 */
 header.sticky .language-dropdown {
     color: var(--text-color-darker); /* 保持原有逻辑 */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232e2e2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
-/* 下拉箭头调整为白色 */
+/* 下拉箭头调整为黑色 */
 .language-dropdown {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
