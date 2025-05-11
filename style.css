@@ -40,6 +40,11 @@ header.sticky .language-dropdown {
     opacity: 0.8;
 }
 
+.language-dropdown option {
+    background-color: var(--text-color-lightest);
+    color: var(--text-color-darker);
+}
+
 /* 导航链接统一高度和对齐 */
 header nav {
     display: flex;
