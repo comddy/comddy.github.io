@@ -675,7 +675,7 @@ footer {
     max-width: 1180px;
     display: grid;
     grid-template-columns: 2.5fr 1.8fr 1.5fr 1fr;
-    gap: 30px;
+    /* gap: 30px; */
     padding: 0 40px;
     margin: 0 auto;
 }
@@ -728,7 +728,6 @@ footer {
   
   /* 备案信息 */
   .icp-info {
-    margin-top: 24px;
     margin-bottom: 16px;
   }
   
