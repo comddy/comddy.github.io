@@ -4,14 +4,15 @@ on: [push]
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Trigger Server Update
-        run: |
-          ssh -o StrictHostKeyChecking=no \
-              -i ~/.ssh/id_ed25519 \
-              deployer@${{ secrets.ALIYUN_SERVER_IP }} \
-              "cd /opt/1panel/apps/openresty/openresty/www/sites/dptech/index && git pull --rebase && chmod -R 755 ."
-        env:
-          ALIYUN_SERVER_IP: ${{ secrets.ALIYUN_SERVER_IP }}
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.ALIYUN_SERVER_IP }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.ALIYUN_SSH_KEY }}
+          script: "cd /opt/1panel/apps/openresty/openresty/www/sites/dptech/index && git pull --rebase && chmod -R 755 ."
