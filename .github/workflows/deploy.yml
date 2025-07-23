@@ -1,0 +1,16 @@
+name: Deploy to Aliyun
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # 检出代码
+
+      - name: Rsync to Aliyun Server
+        run: |
+          rsync -avz --delete \
+            -e 'ssh -o StrictHostKeyChecking=no -i ${{ github.workspace }}/.ssh/id_ed25519' \
+            ./ deployer@${{ secrets.ALIYUN_SERVER_IP }}:/opt/1panel/apps/openresty/openresty/www/sites/dptech/index
+        env:
+          ALIYUN_SERVER_IP: ${{ secrets.ALIYUN_SERVER_IP }}
