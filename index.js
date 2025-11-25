@@ -363,7 +363,7 @@ map.plugin(['AMap.ToolBar', 'AMap.Scale'], function () {
 // 添加标记点
 const marker = new AMap.Marker({
   position: [113.383905, 23.056416],
-  title: '深根宁极(广州)科技有限公司',
+  title: '深根宁极（广州）科技有限责任公司',
   icon: new AMap.Icon({
     // 使用自定义图标
     size: new AMap.Size(40, 40),  // 调整图标大小
@@ -379,8 +379,8 @@ map.add(marker);
 const infoWindow = new AMap.InfoWindow({
   content: `
         <div style="padding: 15px;">
-            <h3 style="margin: 0 0 10px 0; color: #1890ff;">深根宁极(广州)科技有限公司</h3>
-            <p style="margin: 0; line-height: 1.5;">地址：广州市番禺区大学城创信园A1栋603</p>
+            <h3 style="margin: 0 0 10px 0; color: #1890ff;">深根宁极（广州）科技有限责任公司</h3>
+            <p style="margin: 0; line-height: 1.5;">地址：广州市番禺区小谷围街大学城中环西路7号创信园A栋6层</p>
         </div>
     `,
   offset: new AMap.Pixel(0, -30)

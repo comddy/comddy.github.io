@@ -630,7 +630,7 @@ section-bg {
 
 .founder-members {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 26.4px;
     margin-top: 60px;
     max-width: 1200px;
